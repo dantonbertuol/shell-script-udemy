@@ -1,37 +1,38 @@
 #!/usr/bin/env bash
 #
-# nomeDoScript.sh - Breve Descrição
+# listaUsuarios.sh - Extrai usuários do /etc/passwd
 #
 # Site:       
 # Autor:      Danton Bertuol
 # Manutenção: Danton Bertuol
 #
 # ------------------------------------------------------------------------ #
-#  Descrição mais detalhada do script.
+#  Irá extrair usuários do /etc/passwd, havendo a possibilidade de colocar
+# em maiúsculo e em ordem alfabética.
 #
 #  Exemplos:
-#      $ ./nomeDoScript.sh -d 1
-#      Neste exemplo o script será executado no modo debug nível 1.
+#      $ ./listaUsuarios.sh -s -m
+#      Neste exemplo ficará em maiúsculo e em ordem alfabética
 # ------------------------------------------------------------------------ #
 # Histórico:
 #
 #   v1.0 04/11/2024, Danton:
-#       - Início do programa
-#       - Conta com a funcionalidade X
-#   v1.1 10/10/2018, Pedro:
-#       - Alterado parametro XXXXX
+#     -
 # ------------------------------------------------------------------------ #
 # Testado em:
 #   bash 4.4.19
 # ------------------------------------------------------------------------ #
-# Agradecimentos:
-#
-# 	Joãozinho - Encontrou um bug na parte de login.
-#	Mariazinha - Enviou uma sugestão de adicionar o -h.
-# ------------------------------------------------------------------------ #
 
 # ------------------------------- VARIÁVEIS ----------------------------------------- #
+USUARIOS="$(cat /etc/passwd | cut -d : -f 1)"
+MENSAGEM_USO="
+  $0 - [OPÇÕES]
 
+  -h - Menu de ajuda
+  -v - Versão
+  -s - Ordernar a saída
+"
+VERSAO="v1.0"
 # ------------------------------------------------------------------------ #
 
 # ------------------------------- TESTES ----------------------------------------- #
